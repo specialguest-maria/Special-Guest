@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="de" id="html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Special Guest | Official Band Website</title>
+  <meta name="description" content="Official website of Special Guest, the winning rock band of the SRF ESSC 2026. Get tour dates, music videos, bio, and booking details.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/johnny-right.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@200;300;400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="theme-dark">
+
+  <!-- Desktop Floating Sticky Header -->
+  <header class="desktop-header">
+    <div class="header-container">
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="#home" class="active">HOME</a></li>
+          <li><a href="#music">MUSIC</a></li>
+          <li><a href="#live">LIVE</a></li>
+          <li><a href="#bio">BIO</a></li>
+          <li><a href="#booking">BOOK</a></li>
+        </ul>
+      </nav>
+      <div class="lang-switch-container">
+        <button id="lang-btn-de" class="lang-btn active" onclick="setLanguage('de')">DE</button>
+        <span class="lang-separator">|</span>
+        <button id="lang-btn-en" class="lang-btn" onclick="setLanguage('en')">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Floating Language Switcher -->
+  <div class="mobile-lang-switch mobile-only">
+    <button class="mobile-lang-btn" id="mobile-lang-toggle" onclick="toggleLanguage()">EN</button>
+  </div>
+
+  <!-- Phone Mockup Frame Container (Full screen on mobile, responsive container on desktop) -->
+  <main class="app-container">
+
+    <!-- Mobile Time & Status Bar (Hidden on mobile screens, simulated on desktop mockup widths) -->
+    <div class="mobile-status-bar">
+      <span class="status-time" id="status-time">09:41</span>
+      <div class="status-icons">
+        <span class="icon-signal">📶</span>
+        <span class="icon-wifi">📶</span>
+        <span class="icon-battery">🔋</span>
+      </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE/TABBED SECTIONS -->
+    <div class="sections-wrapper">
+
+      <!-- SECTION 1: HOME -->
+      <section id="home" class="app-section active">
+        <div class="hero-bg-wrapper">
+          <img src="assets/band_photo.jpg" alt="Special Guest Band Photo" class="hero-bg-img">
+          <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+          <div class="logo-wrapper">
+            <img src="assets/logo.svg" alt="Special Guest Logo" class="hero-logo-img">
+          </div>
+          <button class="cta-button" onclick="scrollToSection('live')">
+            <span data-lang="de">Komm Live Sehen</span>
+            <span data-lang="en">Come See Us Live</span>
+          </button>
+          
+          <!-- Bottom bird for Home screen in Mobile view -->
+          <div class="home-bird-container mobile-only">
+            <img src="assets/johnny-right.png" alt="Johnny the Bird" class="home-bird-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: MUSIC (Video Player & Socials) -->
+      <section id="music" class="app-section">
+        <div class="section-content">
+          <div class="header-with-accents">
+            <h2 class="section-title">
+              <span data-lang="de">Musik</span>
+              <span data-lang="en">Music</span>
+            </h2>
+            <img src="assets/brush_underline.png" alt="" class="brush-underline">
+          </div>
+
+          <!-- YOUTUBE PLAYER CARD -->
+          <div class="video-card">
+            <div class="video-thumbnail-wrapper" id="video-card-thumbnail">
+              <div class="video-gradient-overlay"></div>
+              
+              <!-- Video card info -->
+              <div class="video-header-info">
+                <div class="band-avatar">SG</div>
+                <span class="video-title">Special Guest Live an der SRF ESSC</span>
+              </div>
+              
+              <!-- Custom Play Button Link -->
+              <a href="#" target="_blank" rel="noopener" class="video-play-btn-link" id="youtube-play-link">
+                <div class="play-btn-icon">
+                  <div class="play-triangle"></div>
+                </div>
+              </a>
+              
+              <div class="video-footer-info">
+                <span class="youtube-logo">Watch on <strong>YouTube</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SOCIAL LINK CHANNEL BUTTON -->
+          <div class="channel-btn-wrapper">
+            <a href="#" target="_blank" rel="noopener" class="channel-link-btn" id="youtube-channel-link">
+              <span data-lang="de">Unser Kanal Abonnieren</span>
+              <span data-lang="en">Check Out Our Channel</span>
+            </a>
+          </div>
+
+          <!-- LET'S BE FRIENDS / SOCIAL SECTION -->
+          <div class="socials-container">
+            <h3 class="socials-heading">
+              <span data-lang="de">Let's Be Friends</span>
+              <span data-lang="en">Let's Be Friends</span>
+            </h3>
+            
+            <p class="socials-subtext">
+              <span data-lang="de">Du findest uns auch auf:</span>
+              <span data-lang="en">Find us on:</span>
+            </p>
+            
+            <div class="social-icons-grid">
+              <a href="#" id="social-link-instagram" target="_blank" rel="noopener" class="social-icon-wrapper" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" class="social-svg">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+              
+              <a href="#" id="social-link-spotify" target="_blank" rel="noopener" class="social-icon-wrapper" aria-label="Spotify">
+                <svg viewBox="0 0 24 24" class="social-svg">
+                  <path d="M9 18V5l12-2v13"></path>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <circle cx="18" cy="16" r="3"></circle>
+                </svg>
+              </a>
+              
+              <a href="#" id="social-link-youtube" target="_blank" rel="noopener" class="social-icon-wrapper" aria-label="YouTube">
+                <svg viewBox="0 0 24 24" class="social-svg">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION 2: LIVE (Tour Dates & Photo Collage Carousel) -->
+      <section id="live" class="app-section">
+        <div class="section-content">
+          <div class="header-with-accents">
+            <h2 class="section-title">
+              <span data-lang="de">Live</span>
+              <span data-lang="en">Live</span>
+            </h2>
+            <img src="assets/brush_underline.png" alt="" class="brush-underline">
+            <img src="assets/live_smiley_note.png" alt="" class="live-smiley-decor">
+          </div>
+
+          <!-- TOUR DATE LIST (RENDERED DYNAMICALLY) -->
+          <div class="tour-dates-container">
+            <div id="dynamic-tour-list" class="tour-list">
+              <!-- JS Injects Shows Here -->
+            </div>
+          </div>
+
+          <!-- DYNAMIC PHOTO CAROUSEL -->
+          <div class="collage-slider-container">
+            <!-- Navigation arrows for Desktop Carousel -->
+            <button class="carousel-arrow prev-arrow" onclick="slideCarousel(-1)">&#10094;</button>
+            
+            <div class="collage-scroll-view" id="collage-scroll">
+              <div class="carousel-track" id="dynamic-carousel-track">
+                <!-- JS Injects Photos Here -->
+              </div>
+            </div>
+            
+            <button class="carousel-arrow next-arrow" onclick="slideCarousel(1)">&#10095;</button>
+            
+            <!-- Indicators dots -->
+            <div class="slider-dots" id="dynamic-slider-dots">
+              <!-- JS Injects Dots Here -->
+            </div>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- SECTION 4: BIO (About the Band) -->
+      <section id="bio" class="app-section">
+        <div class="section-content">
+          <div class="header-with-accents">
+            <div class="bio-decorations">
+              <img src="assets/bio_heart.png" alt="" class="bio-heart-decor">
+              <img src="assets/bio_note.png" alt="" class="bio-note-decor">
+            </div>
+            <h2 class="section-title">
+              <span data-lang="de">Bio</span>
+              <span data-lang="en">Bio</span>
+            </h2>
+            <img src="assets/brush_underline.png" alt="" class="brush-underline">
+          </div>
+
+          <!-- Biography content (DE and EN rendered dynamically) -->
+          <div class="bio-text-wrapper" id="dynamic-bio-text">
+            <!-- JS Injects Bio Here -->
+          </div>
+
+          <!-- Johnny the Bird with Handwriting arrow -->
+          <div class="bio-handwriting-container">
+            <img src="assets/bio_handwriting.png" alt="Auch immer dabei... d Johnny" class="bio-handwriting-img">
+            <img src="assets/johnny-right.png" alt="Johnny the Bird" class="bio-bird-img">
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- SECTION 5: BOOKING -->
+      <section id="booking" class="app-section">
+        <div class="section-content">
+          <div class="header-with-accents">
+            <h2 class="section-title">
+              <span data-lang="de">Book</span>
+              <span data-lang="en">Book</span>
+            </h2>
+            <img src="assets/brush_underline.png" alt="" class="brush-underline">
+          </div>
+
+          <!-- Email Booking Address -->
+          <div class="booking-contact-box">
+            <a href="mailto:bookings@specialguestband.com" class="booking-email-link">bookings@specialguestband.com</a>
+          </div>
+
+          <!-- Noise Complaint Quotes -->
+          <div class="booking-quote-box">
+            <p class="booking-quote" data-lang="de">
+              Verfügbar für Festivals, Club-Gigs und Privatanlässe, wo mer garantiert e 
+              <span class="noise-complaint-underline-wrapper">
+                Lärmbeschwerde
+                <img src="assets/book_underline.png" alt="" class="noise-underline-img">
+              </span> 
+              bechunnt.
+            </p>
+            <p class="booking-quote" data-lang="en">
+              Available for festivals, club gigs, and private events that need a 
+              <span class="noise-complaint-underline-wrapper">
+                noise complaint.
+                <img src="assets/book_underline.png" alt="" class="noise-underline-img">
+              </span>
+            </p>
+          </div>
+
+          <!-- Johnny Left Bird -->
+          <div class="booking-bird-wrapper">
+            <img src="assets/johnny-left.png" alt="Johnny the Bird facing left" class="booking-bird-img">
+          </div>
+
+        </div>
+      </section>
+
+    </div> <!-- End sections-wrapper -->
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-nav-bar">
+      <ul>
+        <li>
+          <button class="nav-item active" id="nav-btn-home" onclick="navigateToTab('home')">
+            <span>HOME</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" id="nav-btn-music" onclick="navigateToTab('music')">
+            <span>MUSIC</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" id="nav-btn-live" onclick="navigateToTab('live')">
+            <span>LIVE</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" id="nav-btn-bio" onclick="navigateToTab('bio')">
+            <span>BIO</span>
+          </button>
+        </li>
+        <li>
+          <button class="nav-item" id="nav-btn-booking" onclick="navigateToTab('booking')">
+            <span>BOOK</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Desktop & Tablet Footer -->
+    <footer class="desktop-footer">
+      <div class="footer-icons">
+        <a href="#" id="footer-link-instagram" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" class="social-svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="#" id="footer-link-spotify" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg viewBox="0 0 24 24" class="social-svg"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+        </a>
+        <a href="#" id="footer-link-youtube" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" class="social-svg"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Special Guest. All rights reserved. | <a href="#admin" class="admin-portal-link" onclick="openAdminCMS()">Admin Portal</a></p>
+    </footer>
+
+  </main>
+
+  <!-- ADMIN CMS OVERLAY INTERFACE -->
+  <div id="admin-portal-modal" class="admin-panel-overlay">
+    
+    <!-- LOGIN VIEW -->
+    <div class="admin-modal-card" id="admin-login-view">
+      <div class="admin-card-header">
+        <h3>Admin Access</h3>
+        <button class="admin-close-btn" onclick="closeAdminCMS()">✕</button>
+      </div>
+      <form onsubmit="handleAdminLogin(event)" class="admin-form">
+        <p class="admin-help-text">Please enter password to access the website CMS panel.</p>
+        <div class="admin-input-group">
+          <input type="password" id="admin-password" required placeholder="Password">
+        </div>
+        <p class="admin-error-text" id="login-error-msg">Incorrect password. Please try again.</p>
+        <div class="admin-actions-bar">
+          <button type="button" class="admin-cancel-btn" onclick="closeAdminCMS()">Cancel</button>
+          <button type="submit" class="admin-save-btn">Login</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- DASHBOARD VIEW -->
+    <div class="admin-modal-card dashboard-card" id="admin-dashboard-view">
+      <div class="admin-card-header">
+        <h3>SPECIAL GUEST - ADMIN PANEL</h3>
+        <button class="admin-close-btn" onclick="closeAdminCMS()">✕</button>
+      </div>
+      
+      <div class="admin-dashboard-body">
+        
+        <!-- Tab Sub-Navigation for Admin Panel (to organize inputs cleanly) -->
+        <div class="admin-subnav">
+          <button class="admin-subtab active" onclick="switchAdminTab('cms-bio')">Biography</button>
+          <button class="admin-subtab" onclick="switchAdminTab('cms-shows')">Tour Dates</button>
+          <button class="admin-subtab" onclick="switchAdminTab('cms-media')">Media & Links</button>
+          <button class="admin-subtab" onclick="switchAdminTab('cms-gallery')">Carousel</button>
+        </div>
+
+        <form id="cms-editor-form" onsubmit="handleCmsSave(event)">
+          
+          <!-- SUBSECTION: BIOGRAPHY -->
+          <div class="cms-section active" id="cms-bio">
+            <h4 class="cms-section-title">Biography Texts</h4>
+            <div class="cms-field">
+              <label for="cms-bio-de">German Bio (DE)</label>
+              <textarea id="cms-bio-de" rows="6" required></textarea>
+            </div>
+            <div class="cms-field">
+              <label for="cms-bio-en">English Bio (EN)</label>
+              <textarea id="cms-bio-en" rows="6" required></textarea>
+            </div>
+          </div>
+
+          <!-- SUBSECTION: TOUR GIGS -->
+          <div class="cms-section" id="cms-shows">
+            <div class="cms-section-header">
+              <h4 class="cms-section-title">Upcoming Shows</h4>
+              <button type="button" class="cms-add-btn" onclick="addNewGigRow()">+ Add Gig</button>
+            </div>
+            <div class="cms-gigs-list" id="cms-upcoming-gigs-container">
+              <!-- JS Injects Upcoming Gig Input Rows Here -->
+            </div>
+            
+            <div class="cms-section-header" style="margin-top: 30px;">
+              <h4 class="cms-section-title">Past Shows</h4>
+            </div>
+            <div class="cms-gigs-list" id="cms-past-gigs-container">
+              <!-- JS Injects Past Gig Input Rows Here -->
+            </div>
+          </div>
+
+          <!-- SUBSECTION: MEDIA & SOCIALS -->
+          <div class="cms-section" id="cms-media">
+            <h4 class="cms-section-title">YouTube Video & Social Profiles</h4>
+            <div class="cms-field">
+              <label for="cms-media-video">YouTube Video ID or URN Link</label>
+              <input type="text" id="cms-media-video" required>
+              <span class="field-desc">E.g., f061f122-6b3b-483b-9a86-d2426998b3c9 (for SRF URN) or a YouTube video ID.</span>
+            </div>
+            <div class="cms-field">
+              <label for="cms-social-instagram">Instagram Profile URL</label>
+              <input type="url" id="cms-social-instagram" required>
+            </div>
+            <div class="cms-field">
+              <label for="cms-social-spotify">Spotify Profile URL</label>
+              <input type="url" id="cms-social-spotify" required>
+            </div>
+            <div class="cms-field">
+              <label for="cms-social-youtube">YouTube Channel URL</label>
+              <input type="url" id="cms-social-youtube" required>
+            </div>
+          </div>
+
+          <!-- SUBSECTION: CAROUSEL IMAGES -->
+          <div class="cms-section" id="cms-gallery">
+            <div class="cms-section-header">
+              <h4 class="cms-section-title">Carousel Images</h4>
+              <button type="button" class="cms-add-btn" onclick="addNewImageRow()">+ Add Image</button>
+            </div>
+            <p class="field-desc">Specify relative paths (e.g. assets/gallery2.jpg) or full URLs of your concert photos.</p>
+            <div class="cms-image-list" id="cms-images-container">
+              <!-- JS Injects Image Input Rows Here -->
+            </div>
+          </div>
+
+          <!-- SUBMIT ACTIONS -->
+          <div class="admin-actions-bar">
+            <button type="button" class="admin-export-btn" onclick="exportCmsConfig()">Export config.json</button>
+            <div class="admin-save-close-buttons">
+              <button type="button" class="admin-cancel-btn" onclick="closeAdminCMS()">Cancel</button>
+              <button type="submit" class="admin-save-btn">Save Changes</button>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>

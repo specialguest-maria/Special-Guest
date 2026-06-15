@@ -1,0 +1,21 @@
+{
+  "youtubeVideo": "https://www.srf.ch/play/tv/schweiz-aktuell/video/rocknroll-am-essc---schafft-es-special-guest?urn=urn:srf:video:f061f122-6b3b-483b-9a86-d2426998b3c9",
+  "socials": {
+    "instagram": "https://www.instagram.com/fraeuleinluisee/",
+    "spotify": "https://open.spotify.com/artist/4JVmmu4WsDKd7tob8aZhCK",
+    "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
+  },
+  "biography": {
+    "de": "Wir sind Salome (Gitarre), Atlas (Gesang), Yannick (Gitarre), Leon (Drums) und Samuel (Bass) - zusammen Special Guest. Wir haben grosse Leidenschaft für Rockmusik und wollen gute Vibes auf die Bühne bringen.\n\nAuch ohne eigene Releases durften wir bereits viele Erfolge feiern und beim ESSC wertvolle Erfahrungen vor Jury und Publikum sammeln. Der Gewinn bedeutet uns viel und gibt uns Motivation und Confidence für die Zukunft.\n\nAls Nächstes freuen wir uns auf unsere Auftritte am 13. Juni im Treibhaus und am 27. Juni am Stadtfest Luzern.",
+    "en": "We are Salome (guitar), Atlas (vocals), Yannick (guitar), Leon (drums), and Samuel (bass) - together we are Special Guest. We share a great passion for rock music and want to bring good vibes to the stage.\n\nEven without our own releases, we have already celebrated many achievements and gathered valuable experience in front of the jury and audience at the ESSC. Winning means a lot to us and gives us motivation and confidence for the future.\n\nNext up, we are looking forward to our performances on June 13th at Treibhaus and on June 27th at Stadtfest Luzern."
+  },
+  "tourDates": [
+    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
+  ],
+  "carouselImages": [
+    "assets/foto_collage.png",
+    "assets/gallery2.jpg",
+    "assets/gallery3.jpg"
+  ]
+}
