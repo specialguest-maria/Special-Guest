@@ -1,0 +1,58 @@
+# Sveltia CMS Configuration
+
+# OPTION A: For GitHub Pages (requires an OAuth Proxy, e.g. Cloudflare Worker or DecapBridge)
+backend:
+  name: github
+  repo: specialguest-maria/Special-Guest
+  branch: main
+  # base_url: https://your-oauth-proxy.workers.dev # Will be replaced with the actual proxy URL
+
+# OPTION B: For Netlify Hosting (100% free, zero-config OAuth gateway via Netlify Identity)
+# backend:
+#   name: git-gateway
+#   branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "settings"
+    label: "Website Content"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "content"
+        label: "Content Data"
+        file: "content_data.json"
+        fields:
+          - { label: "YouTube Video URL", name: "youtubeVideo", widget: "string" }
+          
+          - label: "Social Links"
+            name: "socials"
+            widget: "object"
+            fields:
+              - { label: "Instagram", name: "instagram", widget: "string" }
+              - { label: "Spotify", name: "spotify", widget: "string" }
+              - { label: "YouTube Channel", name: "youtube", widget: "string" }
+              
+          - label: "Biography"
+            name: "biography"
+            widget: "object"
+            fields:
+              - { label: "German Biography", name: "de", widget: "text" }
+              - { label: "English Biography", name: "en", widget: "text" }
+              
+          - label: "Tour Dates"
+            name: "tourDates"
+            widget: "list"
+            summary: "{{fields.date}} - {{fields.venue}}"
+            fields:
+              - { label: "Date (YYYY-MM-DD)", name: "date", widget: "string" }
+              - { label: "Venue", name: "venue", widget: "string" }
+              - { label: "Ticket Link", name: "link", widget: "string", required: false }
+              
+          - label: "Carousel Images"
+            name: "carouselImages"
+            widget: "list"
+            field: { label: "Image", name: "image", widget: "image" }
