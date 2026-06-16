@@ -97,6 +97,8 @@ a {
   position: relative;
   margin-bottom: 30px;
   display: inline-block;
+  align-self: flex-start; /* Left-aligns in flex column layouts (like desktop #music and #booking) */
+  text-align: left;       /* Left-aligns text inside the header block */
 }
 
 .section-title {
@@ -1023,7 +1025,8 @@ a {
   .carousel-slide-item {
     scroll-snap-align: start;
     flex-shrink: 0;
-    width: 320px;
+    width: 280px;
+    max-width: 80vw;
     height: 230px;
     border: 1px solid var(--color-border);
   }
