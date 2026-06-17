@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 
-os.makedirs('assets', exist_ok=True)
+os.makedirs('docs/assets', exist_ok=True)
 
 def crop_and_transparent(source_path, box, output_path, threshold=40):
     print(f"Cropping {output_path} from {source_path}...")
@@ -31,22 +31,22 @@ def crop_and_transparent(source_path, box, output_path, threshold=40):
 
 # Define coordinates based on 440 width screens
 # 1. Underline under header (crop from MUSIC.png)
-crop_and_transparent('MUSIC.png', (30, 170, 160, 215), 'assets/brush_underline.png', threshold=35)
+crop_and_transparent('MUSIC.png', (30, 170, 160, 215), 'docs/assets/brush_underline.png', threshold=35)
 
 # 2. Smiley and notes (from LIVE.png)
-crop_and_transparent('LIVE.png', (280, 150, 420, 250), 'assets/live_smiley_note.png', threshold=35)
+crop_and_transparent('LIVE.png', (280, 150, 420, 250), 'docs/assets/live_smiley_note.png', threshold=35)
 
 # 3. Heart icon (from BIO.png)
-crop_and_transparent('BIO.png', (35, 65, 85, 105), 'assets/bio_heart.png', threshold=35)
+crop_and_transparent('BIO.png', (40, 95, 80, 125), 'docs/assets/bio_heart.png', threshold=35)
 
 # 4. Music note icon (from BIO.png)
-crop_and_transparent('BIO.png', (120, 80, 180, 130), 'assets/bio_note.png', threshold=35)
+crop_and_transparent('BIO.png', (95, 115, 180, 178), 'docs/assets/bio_note.png', threshold=35)
 
 # 5. Handwriting text "Auch immer dabei... d Johnny" (from BIO.png)
-crop_and_transparent('BIO.png', (10, 1100, 300, 1260), 'assets/bio_handwriting.png', threshold=35)
+crop_and_transparent('BIO.png', (10, 1100, 300, 1260), 'docs/assets/bio_handwriting.png', threshold=35)
 
 # 6. Underline under "Lärmbeschwerde" (from BOOK.png)
 # "Lärmbeschwerde" in BOOK.png is around y=480 to 530, x=150 to 380
-crop_and_transparent('BOOK.png', (160, 500, 360, 540), 'assets/book_underline.png', threshold=35)
+crop_and_transparent('BOOK.png', (160, 500, 360, 540), 'docs/assets/book_underline.png', threshold=35)
 
 print("Handwritten assets cropped successfully!")
