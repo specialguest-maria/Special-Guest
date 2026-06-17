@@ -239,8 +239,9 @@ a {
     padding: 0;
     position: relative;
     display: flex;
-    align-items: center;
+    align-items: flex-end; /* Align hero content to the bottom */
     justify-content: center;
+    padding-bottom: 80px; /* Space from the bottom of the viewport */
   }
   
   .hero-bg-wrapper {
@@ -278,7 +279,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px; /* Reduced gap to keep logo and CTA button close */
   }
   
   .logo-wrapper {
