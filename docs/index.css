@@ -633,24 +633,29 @@ a {
   
   .bio-decorations {
     position: absolute;
-    top: -20px;
-    left: -40px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
   
   .bio-heart-decor {
-    width: 32px;
+    width: 45px;
     height: auto;
     position: absolute;
-    top: -25px;
-    left: 20px;
+    top: -45px;
+    left: -40px;
+    transform: rotate(-12deg);
   }
   
   .bio-note-decor {
-    width: 44px;
+    width: 58px;
     height: auto;
     position: absolute;
-    top: -5px;
-    left: 80px;
+    top: -15px;
+    left: 110px;
+    transform: rotate(12deg);
   }
   
   .bio-text-wrapper {
@@ -1126,22 +1131,27 @@ a {
   /* Bio / About Page (Mobile) */
   .bio-decorations {
     position: absolute;
-    top: -20px;
-    left: -15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
   
   .bio-heart-decor {
-    width: 22px;
+    width: 32px;
     position: absolute;
-    top: -15px;
-    left: 10px;
+    top: -30px;
+    left: -25px;
+    transform: rotate(-12deg);
   }
   
   .bio-note-decor {
-    width: 32px;
+    width: 42px;
     position: absolute;
-    top: -5px;
-    left: 45px;
+    top: -10px;
+    left: 80px;
+    transform: rotate(12deg);
   }
   
   .bio-text-wrapper p {
