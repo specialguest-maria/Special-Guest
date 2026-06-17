@@ -946,6 +946,10 @@ a {
   }
   
   /* Section Header on Mobile */
+  .header-with-accents {
+    margin-top: 20px;
+  }
+  
   .section-title {
     font-size: 2.2rem;
   }
