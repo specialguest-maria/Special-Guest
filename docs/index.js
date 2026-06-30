@@ -253,37 +253,23 @@ function toggleLanguage() {
 
 // NAVIGATION STATE SYSTEM
 function navigateToTab(tabId) {
-  // 1. MOBILE LOGIC (< 768px): toggles active section display blocks
-  if (window.innerWidth < 768) {
-    activeMobileTab = tabId;
+  // Both mobile and desktop now scroll to the section
+  const section = document.getElementById(tabId);
+  if (section) {
+    // On mobile, account for the fixed bottom nav bar
+    const isMobile = window.innerWidth < 768;
+    const offset = isMobile ? 0 : 80; // desktop has header offset
+    const topPos = section.offsetTop - offset;
     
-    // Toggle active section
-    const sections = document.querySelectorAll('.app-section');
-    sections.forEach(section => {
-      if (section.getAttribute('id') === tabId) {
-        section.classList.add('active');
-        section.scrollTop = 0;
-      } else {
-        section.classList.remove('active');
-      }
+    window.scrollTo({
+      top: topPos,
+      behavior: 'smooth'
     });
     
-    // Toggle active bottom nav button
-    const navButtons = document.querySelectorAll('.nav-item');
-    navButtons.forEach(btn => {
-      const btnTabId = btn.getAttribute('id').replace('nav-btn-', '');
-      const targetId = btnTabId === 'book' ? 'booking' : btnTabId;
-      
-      if (targetId === tabId) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-    });
-  } 
-  // 2. DESKTOP LOGIC (>= 768px): performs page anchor scroll
-  else {
-    scrollToSection(tabId);
+    // Update active nav button on mobile
+    if (isMobile) {
+      updateMobileNavActive(tabId);
+    }
   }
 }
 
@@ -299,25 +285,41 @@ function scrollToSection(sectionId) {
   }
 }
 
-// DESKTOP HEADER SCROLL SPY
+// Update mobile bottom nav active state
+function updateMobileNavActive(tabId) {
+  const navButtons = document.querySelectorAll('.nav-item');
+  navButtons.forEach(btn => {
+    const btnTabId = btn.getAttribute('id').replace('nav-btn-', '');
+    const targetId = btnTabId === 'book' ? 'booking' : btnTabId;
+    
+    if (targetId === tabId) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+}
+
+// SCROLL SPY (Desktop header + Mobile bottom nav)
 function initScrollSpy() {
   const sections = document.querySelectorAll('.app-section');
-  const navLinks = document.querySelectorAll('.desktop-nav a');
+  const desktopNavLinks = document.querySelectorAll('.desktop-nav a');
   
   window.addEventListener('scroll', () => {
+    let currentSectionId = 'home';
+    const scrollPosition = window.scrollY + 150; // offset for sticky header
+    
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+    
+    // Update desktop nav
     if (window.innerWidth >= 768) {
-      let currentSectionId = 'home';
-      const scrollPosition = window.scrollY + 150; // offset sticky height
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute('id');
-        }
-      });
-      
-      navLinks.forEach(link => {
+      desktopNavLinks.forEach(link => {
         const targetHref = link.getAttribute('href').substring(1);
         if (targetHref === currentSectionId) {
           link.classList.add('active');
@@ -325,6 +327,11 @@ function initScrollSpy() {
           link.classList.remove('active');
         }
       });
+    }
+    
+    // Update mobile bottom nav
+    if (window.innerWidth < 768) {
+      updateMobileNavActive(currentSectionId);
     }
   });
 }
