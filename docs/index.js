@@ -21,9 +21,18 @@ const fallbackDefaultData = {
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
   ],
   "carouselImages": [
-    "assets/foto_collage.png",
-    "assets/gallery2.jpg",
-    "assets/gallery3.jpg"
+    "assets/treibhaus_alle4.jpg",
+    "assets/treibhaus_atlasftw.jpg",
+    "assets/treibhaus_sq-alle.jpg",
+    "assets/treibhaus_pxl_20260613_181940447.jpg",
+    "assets/treibhaus_atlas.jpg",
+    "assets/treibhaus_salome-atlas.jpg",
+    "assets/treibhaus_salome3.jpg",
+    "assets/treibhaus_yannick.jpg",
+    "assets/treibhaus_yannick3.jpg",
+    "assets/treibhaus_leon2.jpg",
+    "assets/treibhaus_samuel2.jpg",
+    "assets/treibhaus_smile.jpg"
   ]
 };
 
