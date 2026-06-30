@@ -670,26 +670,40 @@ a {
     text-align: justify;
   }
   
-  /* Bio handwriting layout at bottom */
-  .bio-handwriting-container {
-    display: flex;
+  /* Bio Johnny/Bird layout at bottom (left-bound) */
+  .bio-johnny-container {
+    display: inline-flex;
     align-items: center;
-    justify-content: flex-end;
     margin-top: 40px;
     position: relative;
-    padding-right: 40px;
   }
   
-  .bio-handwriting-img {
-    height: 120px;
+  .bio-johnny-text {
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.35;
+    color: var(--color-text-primary);
+    transform: rotate(-10deg);
+    transform-origin: left bottom;
+    user-select: none;
+    margin-right: 15px;
+  }
+  
+  .bio-johnny-text .green-heart {
+    display: inline-block;
+    margin-left: 2px;
+  }
+  
+  .bio-johnny-arrow {
+    height: 25px;
     width: auto;
-    position: absolute;
-    right: 200px;
-    top: -10px;
+    margin-top: 15px;
+    margin-right: 20px;
   }
   
-  .bio-bird-img {
-    height: 150px;
+  .bio-johnny-bird {
+    height: 140px;
     width: auto;
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.5));
   }
@@ -1164,24 +1178,26 @@ a {
     margin-bottom: 16px;
   }
   
-  .bio-handwriting-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  .bio-johnny-container {
+    display: inline-flex;
+    align-items: center;
     margin-top: 24px;
-    position: relative;
-    padding-right: 0px;
+    margin-bottom: 20px;
   }
   
-  .bio-handwriting-img {
-    height: 75px;
-    position: absolute;
-    right: 120px;
-    top: 5px;
+  .bio-johnny-text {
+    font-size: 0.9rem;
+    margin-right: 10px;
   }
   
-  .bio-bird-img {
-    height: 100px;
+  .bio-johnny-arrow {
+    height: 16px;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+  
+  .bio-johnny-bird {
+    height: 90px;
   }
   
   /* Booking Page (Mobile) */
