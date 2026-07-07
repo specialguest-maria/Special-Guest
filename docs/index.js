@@ -133,15 +133,20 @@ function renderPageDynamicElements() {
       const gigRow = document.createElement('div');
       gigRow.className = 'tour-item';
       
-      const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
-      const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
-      
+      // Events without a link get no action button
+      let actionBtnHtml = '';
+      if (gig.link) {
+        const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
+        const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
+        actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
+      }
+
       gigRow.innerHTML = `
         <div class="tour-info">
           <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}</span>
           <span class="tour-venue">${gig.venue}</span>
         </div>
-        <a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>
+        ${actionBtnHtml}
       `;
       tourListContainer.appendChild(gigRow);
     });
