@@ -243,10 +243,10 @@ function renderPageDynamicElements() {
       dotsContainer.appendChild(dot);
     });
     
-    // Reinitialize scroll listener on Mobile view slider container
+    // Keep the active dot in sync while the carousel scrolls (mobile swipe & desktop arrows)
     const scrollContainer = document.getElementById('collage-scroll');
     if (scrollContainer) {
-      scrollContainer.addEventListener('scroll', syncMobileCarouselDots);
+      scrollContainer.addEventListener('scroll', syncCarouselDots);
     }
   }
 
@@ -411,24 +411,32 @@ function initScrollSpy() {
   });
 }
 
-// MOBILE COLLAGE CAROUSEL SYNC
-function syncMobileCarouselDots() {
-  if (window.innerWidth < 768) {
-    const scrollContainer = document.getElementById('collage-scroll');
-    const dots = document.querySelectorAll('#dynamic-slider-dots .dot');
-    
-    if (scrollContainer && dots.length > 0) {
-      const scrollLeft = scrollContainer.scrollLeft;
-      const index = Math.min(dots.length - 1, Math.max(0, Math.round(scrollLeft / 336))); // 320 card + 16 gap
-      
-      dots.forEach((dot, idx) => {
-        if (idx === index) {
-          dot.classList.add('active');
-        } else {
-          dot.classList.remove('active');
-        }
-      });
-    }
+// CAROUSEL HELPERS (desktop & mobile)
+// One scroll step = slide width + track gap, measured from the live layout
+function getCarouselStep() {
+  const track = document.getElementById('dynamic-carousel-track');
+  const slide = track ? track.querySelector('.carousel-slide-item') : null;
+  if (!slide) return 336;
+  const gap = track ? (parseFloat(getComputedStyle(track).gap) || 16) : 16;
+  return slide.offsetWidth + gap;
+}
+
+// Highlight the dot for the slide closest to the current scroll position
+function syncCarouselDots() {
+  const scrollContainer = document.getElementById('collage-scroll');
+  const dots = document.querySelectorAll('#dynamic-slider-dots .dot');
+
+  if (scrollContainer && dots.length > 0) {
+    const scrollLeft = scrollContainer.scrollLeft;
+    const index = Math.min(dots.length - 1, Math.max(0, Math.round(scrollLeft / getCarouselStep())));
+
+    dots.forEach((dot, idx) => {
+      if (idx === index) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
   }
 }
 
@@ -436,7 +444,7 @@ function syncMobileCarouselDots() {
 function scrollCollageTo(index) {
   const scrollContainer = document.getElementById('collage-scroll');
   if (scrollContainer) {
-    const slideOffset = index * 336; // 320 width + 16 gap
+    const slideOffset = index * getCarouselStep();
     scrollContainer.scrollTo({
       left: slideOffset,
       behavior: 'smooth'
@@ -451,7 +459,7 @@ function slideCarousel(direction) {
     const trackWidth = scrollContainer.clientWidth;
     const scrollLimit = scrollContainer.scrollWidth - trackWidth;
     
-    let newScrollLeft = scrollContainer.scrollLeft + (direction * 336);
+    let newScrollLeft = scrollContainer.scrollLeft + (direction * getCarouselStep());
     if (newScrollLeft < 0) newScrollLeft = 0;
     if (newScrollLeft > scrollLimit) newScrollLeft = scrollLimit;
     
