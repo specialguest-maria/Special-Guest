@@ -92,11 +92,15 @@ a {
   transform: translateY(1px);
 }
 
-.tour-action-btn.tour-btn-disabled {
+/* Plain-text placeholder in the action-button slot for events without a link */
+.tour-pending-note {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   color: var(--color-text-secondary);
-  border-color: var(--color-border);
-  cursor: default;
-  pointer-events: none;
+  padding: 10px 0;
+  text-align: right;
 }
 
 /* SECTION STRUCTURE WITH ACCENTS */

@@ -129,7 +129,7 @@ function renderTourDates() {
       actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
     } else {
       const pendingText = currentLanguage === 'de' ? 'Details folgen...' : 'Details to follow...';
-      actionBtnHtml = `<button class="tour-action-btn tour-btn-disabled" disabled>${pendingText}</button>`;
+      actionBtnHtml = `<span class="tour-pending-note">${pendingText}</span>`;
     }
 
     gigRow.innerHTML = `
