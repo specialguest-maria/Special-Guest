@@ -338,6 +338,13 @@ function initScrollSpy() {
         currentSectionId = section.getAttribute('id');
       }
     });
+
+    // The last section can be shorter than the viewport, leaving it unreachable
+    // by the offset formula above — at the page bottom it is always the active one
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom && sections.length) {
+      currentSectionId = sections[sections.length - 1].getAttribute('id');
+    }
     
     // Update desktop nav
     if (window.innerWidth >= 768) {

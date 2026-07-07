@@ -204,6 +204,50 @@ a {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
+/* Booking Section Text (shared desktop & mobile) */
+.booking-contact-box {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.booking-email-link {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  color: var(--color-accent);
+  text-shadow: 0 0 10px rgba(var(--color-accent-rgb), 0.25);
+  transition: all 0.2s;
+}
+
+.booking-email-link:hover {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.booking-quote-box {
+  margin-bottom: 50px;
+  max-width: 600px;
+}
+
+.booking-quote {
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+.noise-complaint-underline-wrapper {
+  position: relative;
+  display: inline-block;
+  color: var(--color-accent);
+}
+
+.noise-underline-img {
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 105%;
+  height: auto;
+}
+
 /* Social Connect Layout (shared desktop & mobile) */
 .socials-container {
   text-align: center;
@@ -745,49 +789,6 @@ a {
     flex-direction: column;
     align-items: center;
     text-align: center;
-  }
-  
-  .booking-contact-box {
-    margin-top: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .booking-email-link {
-    font-family: var(--font-display);
-    font-size: 3.2rem;
-    color: var(--color-accent);
-    text-shadow: 0 0 10px rgba(var(--color-accent-rgb), 0.25);
-    transition: all 0.2s;
-  }
-  
-  .booking-email-link:hover {
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
-  }
-  
-  .booking-quote-box {
-    margin-bottom: 50px;
-    max-width: 600px;
-  }
-  
-  .booking-quote {
-    font-size: 1.6rem;
-    line-height: 1.7;
-    color: var(--color-text-primary);
-  }
-  
-  .noise-complaint-underline-wrapper {
-    position: relative;
-    display: inline-block;
-    color: var(--color-accent);
-  }
-  
-  .noise-underline-img {
-    position: absolute;
-    bottom: -14px;
-    left: 0;
-    width: 105%;
-    height: auto;
   }
   
   .booking-bird-wrapper {
