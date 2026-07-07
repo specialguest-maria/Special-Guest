@@ -6,10 +6,9 @@ let currentSlideIndex = 0;
 
 // FALLBACK DEFAULT DATA (if content_data.json is missing or offline)
 const fallbackDefaultData = {
-  "youtubeVideo": "https://www.srf.ch/play/tv/schweiz-aktuell/video/rocknroll-am-essc---schafft-es-special-guest?urn=urn:srf:video:f061f122-6b3b-483b-9a86-d2426998b3c9",
+  "youtubeVideo": "https://share.google/kzpEFy9OFBIIiB3NN",
   "socials": {
     "instagram": "https://www.instagram.com/special.guest_officiall?igsh=Mzhla3doemxrZDd6",
-    "spotify": "https://open.spotify.com/artist/4JVmmu4WsDKd7tob8aZhCK",
     "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
   },
   "biography": {
@@ -205,20 +204,16 @@ function renderPageDynamicElements() {
 
   // Update Social Icons Grid
   const igLink = document.getElementById('social-link-instagram');
-  const spLink = document.getElementById('social-link-spotify');
   const ytLink = document.getElementById('social-link-youtube');
-  
+
   if (igLink) igLink.setAttribute('href', cmsData.socials.instagram);
-  if (spLink) spLink.setAttribute('href', cmsData.socials.spotify);
   if (ytLink) ytLink.setAttribute('href', cmsData.socials.youtube);
 
   // Update Footer Links
   const footIg = document.getElementById('footer-link-instagram');
-  const footSp = document.getElementById('footer-link-spotify');
   const footYt = document.getElementById('footer-link-youtube');
-  
+
   if (footIg) footIg.setAttribute('href', cmsData.socials.instagram);
-  if (footSp) footSp.setAttribute('href', cmsData.socials.spotify);
   if (footYt) footYt.setAttribute('href', cmsData.socials.youtube);
 }
 
