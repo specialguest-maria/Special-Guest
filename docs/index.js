@@ -421,14 +421,18 @@ function getCarouselStep() {
   return slide.offsetWidth + gap;
 }
 
-// Highlight the dot for the slide closest to the current scroll position
+// Highlight the dot matching the scroll progress. Dots map proportionally onto
+// the scrollable range (last dot = scrolled to the end): with several slides
+// visible at once the end of the range is reached before the last slide is
+// leftmost, so a per-slide mapping would leave the final dots unreachable.
 function syncCarouselDots() {
   const scrollContainer = document.getElementById('collage-scroll');
   const dots = document.querySelectorAll('#dynamic-slider-dots .dot');
 
   if (scrollContainer && dots.length > 0) {
-    const scrollLeft = scrollContainer.scrollLeft;
-    const index = Math.min(dots.length - 1, Math.max(0, Math.round(scrollLeft / getCarouselStep())));
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+    const progress = maxScroll > 0 ? scrollContainer.scrollLeft / maxScroll : 0;
+    const index = Math.min(dots.length - 1, Math.max(0, Math.round(progress * (dots.length - 1))));
 
     dots.forEach((dot, idx) => {
       if (idx === index) {
@@ -440,13 +444,14 @@ function syncCarouselDots() {
   }
 }
 
-// Dot selector click function
+// Dot selector click function (inverse of the proportional dot mapping)
 function scrollCollageTo(index) {
   const scrollContainer = document.getElementById('collage-scroll');
-  if (scrollContainer) {
-    const slideOffset = index * getCarouselStep();
+  const dots = document.querySelectorAll('#dynamic-slider-dots .dot');
+  if (scrollContainer && dots.length > 1) {
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
     scrollContainer.scrollTo({
-      left: slideOffset,
+      left: (index / (dots.length - 1)) * maxScroll,
       behavior: 'smooth'
     });
   }
