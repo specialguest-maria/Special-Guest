@@ -20,6 +20,10 @@ const fallbackDefaultData = {
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
+  "pastShows": [
+    { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
+    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" }
+  ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
     "assets/treibhaus_atlasftw.jpg",
@@ -158,6 +162,42 @@ function renderTourDates() {
   tourListContainer.appendChild(ctaRow);
 }
 
+// PAST SHOWS RENDERER (re-run on language switch for translated labels)
+function renderPastShows() {
+  if (!cmsData) return;
+  const container = document.getElementById('past-shows-container');
+  const list = document.getElementById('dynamic-past-shows-list');
+  if (!container || !list) return;
+
+  const pastShows = cmsData.pastShows || [];
+  if (!pastShows.length) {
+    container.style.display = 'none';
+    return;
+  }
+  container.style.display = '';
+  list.innerHTML = '';
+
+  pastShows.forEach(gig => {
+    const gigRow = document.createElement('div');
+    gigRow.className = 'tour-item';
+
+    let actionBtnHtml = '';
+    if (gig.link) {
+      const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
+      actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">Details</a>`;
+    }
+
+    gigRow.innerHTML = `
+      <div class="tour-info">
+        <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}</span>
+        <span class="tour-venue">${gig.venue}</span>
+      </div>
+      ${actionBtnHtml}
+    `;
+    list.appendChild(gigRow);
+  });
+}
+
 // RENDER ENGINE
 function renderPageDynamicElements() {
   if (!cmsData) return;
@@ -174,8 +214,9 @@ function renderPageDynamicElements() {
     bioContainer.innerHTML = formattedBio;
   }
 
-  // 2. RENDER TOUR GIGS
+  // 2. RENDER TOUR GIGS & PAST SHOWS
   renderTourDates();
+  renderPastShows();
 
   // 3. RENDER CAROUSEL IMAGES
   const carouselTrack = document.getElementById('dynamic-carousel-track');
@@ -263,8 +304,9 @@ function setLanguage(lang) {
     bioContainer.innerHTML = activeText.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
   }
 
-  // Re-render tour list so date formats and button labels follow the language
+  // Re-render tour lists so date formats and button labels follow the language
   renderTourDates();
+  renderPastShows();
 }
 
 // TOGGLE LANGUAGE MOBILE

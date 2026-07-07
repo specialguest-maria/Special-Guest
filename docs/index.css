@@ -204,6 +204,17 @@ a {
   box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
+/* Past Shows (shared desktop & mobile) */
+.past-shows-container {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.past-shows-container .socials-heading {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
 /* Booking Section Text (shared desktop & mobile) */
 .booking-contact-box {
   margin-top: 20px;
@@ -983,6 +994,11 @@ a {
   /* Tour date row listing (Mobile) */
   .tour-dates-container {
     margin-top: 10px;
+  }
+
+  .past-shows-container {
+    margin-top: 40px;
+    margin-bottom: 30px;
   }
   
   .tour-item {

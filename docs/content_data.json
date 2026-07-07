@@ -13,6 +13,10 @@
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
+  "pastShows": [
+    { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
+    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" }
+  ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
     "assets/treibhaus_atlasftw.jpg",
