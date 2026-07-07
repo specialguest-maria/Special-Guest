@@ -8,7 +8,7 @@ let currentSlideIndex = 0;
 const fallbackDefaultData = {
   "youtubeVideo": "https://www.srf.ch/play/tv/schweiz-aktuell/video/rocknroll-am-essc---schafft-es-special-guest?urn=urn:srf:video:f061f122-6b3b-483b-9a86-d2426998b3c9",
   "socials": {
-    "instagram": "https://www.instagram.com/fraeuleinluisee/",
+    "instagram": "https://www.instagram.com/special.guest_officiall?igsh=Mzhla3doemxrZDd6",
     "spotify": "https://open.spotify.com/artist/4JVmmu4WsDKd7tob8aZhCK",
     "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
   },
