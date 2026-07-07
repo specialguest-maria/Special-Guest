@@ -9,13 +9,13 @@
     "en": "Special Guest is a young rock band from Lucerne consisting of five musicians born between 2010 and 2012. Since their formation in 2023, the band has already played numerous concerts, and in May 2026, they won the SRF Eurovision School Song Contest.\n\nSo far, Special Guest has mainly played cover songs, but the band is currently working on their first original songs."
   },
   "tourDates": [
-    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
-    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
   "pastShows": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
-    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" }
+    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" },
+    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",

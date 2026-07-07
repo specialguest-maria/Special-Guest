@@ -16,13 +16,13 @@ const fallbackDefaultData = {
     "en": "We are Salome (guitar), Atlas (vocals), Yannick (guitar), Leon (drums), and Samuel (bass) - together we are Special Guest. We share a great passion for rock music and want to bring good vibes to the stage.\n\nEven without our own releases, we have already celebrated many achievements and gathered valuable experience in front of the jury and audience at the ESSC. Winning means a lot to us and gives us motivation and confidence for the future.\n\nNext up, we are looking forward to our performances on June 13th at Treibhaus and on June 27th at Stadtfest Luzern."
   },
   "tourDates": [
-    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
-    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
   "pastShows": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
-    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" }
+    { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" },
+    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
