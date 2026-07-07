@@ -21,7 +21,7 @@ const fallbackDefaultData = {
   "pastShows": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
     { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" },
-    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
+    { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch/programm/bandnight-musikschule-luzern-130626" },
     { "date": "2026-06-21", "venue": "Albisstrassenfest in Adliswil ZH", "link": "https://www.albisstrassenfest.ch/#programm" },
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
   ],
@@ -170,13 +170,16 @@ function renderPastShows() {
   const list = document.getElementById('dynamic-past-shows-list');
   if (!container || !list) return;
 
-  const pastShows = cmsData.pastShows || [];
+  const pastShows = (cmsData.pastShows || []).slice();
   if (!pastShows.length) {
     container.style.display = 'none';
     return;
   }
   container.style.display = '';
   list.innerHTML = '';
+
+  // Most recent show at the top, oldest at the bottom
+  pastShows.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   pastShows.forEach(gig => {
     const gigRow = document.createElement('div');
