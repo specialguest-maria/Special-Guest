@@ -17,7 +17,8 @@ const fallbackDefaultData = {
   },
   "tourDates": [
     { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
-    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
+    { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
@@ -101,6 +102,62 @@ async function loadWebsiteData() {
   renderPageDynamicElements();
 }
 
+// TOUR DATES RENDERER (re-run on language switch for translated labels)
+function renderTourDates() {
+  if (!cmsData) return;
+  const tourListContainer = document.getElementById('dynamic-tour-list');
+  if (!tourListContainer) return;
+
+  tourListContainer.innerHTML = ''; // clear
+
+  // Filter out past events (gigs show up to 1 day after show date has passed)
+  const upcomingGigs = cmsData.tourDates.filter(gig => !isShowPast(gig.date));
+
+  // Sort upcoming gigs chronologically ascending (soonest show at the top)
+  upcomingGigs.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+  // Render Gigs list from array
+  upcomingGigs.forEach(gig => {
+    const gigRow = document.createElement('div');
+    gigRow.className = 'tour-item';
+
+    // Events without a link get a deactivated "details to follow" button
+    let actionBtnHtml;
+    if (gig.link) {
+      const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
+      const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
+      actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
+    } else {
+      const pendingText = currentLanguage === 'de' ? 'Details folgen...' : 'Details to follow...';
+      actionBtnHtml = `<button class="tour-action-btn tour-btn-disabled" disabled>${pendingText}</button>`;
+    }
+
+    gigRow.innerHTML = `
+      <div class="tour-info">
+        <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}</span>
+        <span class="tour-venue">${gig.venue}</span>
+      </div>
+      ${actionBtnHtml}
+    `;
+    tourListContainer.appendChild(gigRow);
+  });
+
+  // Add static Booking CTA at bottom of gigs
+  const ctaRow = document.createElement('div');
+  ctaRow.className = 'tour-item booking-row';
+  const ctaDateText = currentLanguage === 'de' ? 'Dein Event hier...' : 'Your Event Here...';
+  const ctaVenueText = currentLanguage === 'de' ? 'Buche Special Guest' : 'Book Special Guest';
+
+  ctaRow.innerHTML = `
+    <div class="tour-info">
+      <span class="tour-date">${ctaDateText}</span>
+      <span class="tour-venue">${ctaVenueText}</span>
+    </div>
+    <button onclick="navigateToTab('booking')" class="tour-action-btn booking-btn">Book Us!</button>
+  `;
+  tourListContainer.appendChild(ctaRow);
+}
+
 // RENDER ENGINE
 function renderPageDynamicElements() {
   if (!cmsData) return;
@@ -118,54 +175,7 @@ function renderPageDynamicElements() {
   }
 
   // 2. RENDER TOUR GIGS
-  const tourListContainer = document.getElementById('dynamic-tour-list');
-  if (tourListContainer) {
-    tourListContainer.innerHTML = ''; // clear
-    
-    // Filter out past events (gigs show up to 1 day after show date has passed)
-    const upcomingGigs = cmsData.tourDates.filter(gig => !isShowPast(gig.date));
-    
-    // Sort upcoming gigs chronologically ascending (soonest show at the top)
-    upcomingGigs.sort((a, b) => new Date(a.date) - new Date(b.date));
-    
-    // Render Gigs list from array
-    upcomingGigs.forEach(gig => {
-      const gigRow = document.createElement('div');
-      gigRow.className = 'tour-item';
-      
-      // Events without a link get no action button
-      let actionBtnHtml = '';
-      if (gig.link) {
-        const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
-        const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
-        actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
-      }
-
-      gigRow.innerHTML = `
-        <div class="tour-info">
-          <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}</span>
-          <span class="tour-venue">${gig.venue}</span>
-        </div>
-        ${actionBtnHtml}
-      `;
-      tourListContainer.appendChild(gigRow);
-    });
-
-    // Add static Booking CTA at bottom of gigs
-    const ctaRow = document.createElement('div');
-    ctaRow.className = 'tour-item booking-row';
-    const ctaDateText = currentLanguage === 'de' ? 'Dein Event hier...' : 'Your Event Here...';
-    const ctaVenueText = currentLanguage === 'de' ? 'Buche Special Guest' : 'Book Special Guest';
-    
-    ctaRow.innerHTML = `
-      <div class="tour-info">
-        <span class="tour-date">${ctaDateText}</span>
-        <span class="tour-venue">${ctaVenueText}</span>
-      </div>
-      <button onclick="navigateToTab('booking')" class="tour-action-btn booking-btn">Book Us!</button>
-    `;
-    tourListContainer.appendChild(ctaRow);
-  }
+  renderTourDates();
 
   // 3. RENDER CAROUSEL IMAGES
   const carouselTrack = document.getElementById('dynamic-carousel-track');
@@ -252,6 +262,9 @@ function setLanguage(lang) {
     const activeText = lang === 'de' ? cmsData.biography.de : cmsData.biography.en;
     bioContainer.innerHTML = activeText.split('\n\n').map(p => `<p>${p.replace(/\n/g, '<br>')}</p>`).join('');
   }
+
+  // Re-render tour list so date formats and button labels follow the language
+  renderTourDates();
 }
 
 // TOGGLE LANGUAGE MOBILE

@@ -92,6 +92,13 @@ a {
   transform: translateY(1px);
 }
 
+.tour-action-btn.tour-btn-disabled {
+  color: var(--color-text-secondary);
+  border-color: var(--color-border);
+  cursor: default;
+  pointer-events: none;
+}
+
 /* SECTION STRUCTURE WITH ACCENTS */
 .header-with-accents {
   position: relative;

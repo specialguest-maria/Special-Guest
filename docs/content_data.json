@@ -10,7 +10,8 @@
   },
   "tourDates": [
     { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch" },
-    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
+    { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
