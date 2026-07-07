@@ -891,62 +891,62 @@ a {
     flex-direction: column;
   }
   
+  /* Order: logo on black, band photo, Johnny bottom-left */
+  #home .hero-content {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px 8px 20px;
+    position: relative;
+    z-index: 2;
+  }
+
   #home .hero-bg-wrapper {
+    order: 2;
     position: relative;
     width: 100%;
     flex-shrink: 0;
   }
-  
+
+  .home-bird-container {
+    order: 3;
+    width: 175px;
+    height: auto;
+    /* Negative left margin compensates for transparent padding inside the PNG */
+    margin: 15px auto 20px -15px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
   #home .hero-bg-img {
     width: 100%;
     height: auto;
     display: block;
     object-fit: cover;
   }
-  
+
   #home .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.8) 100%);
+    display: none;
   }
-  
-  #home .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    position: relative;
-    z-index: 2;
-  }
-  
+
   #home .logo-wrapper {
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     top: auto;
     left: auto;
   }
-  
+
   #home .hero-logo-img {
     width: 100%;
     height: auto;
   }
-  
+
   #home .cta-button {
     display: none;
   }
-  
-  .home-bird-container {
-    width: 120px;
-    height: auto;
-    margin: 10px auto 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
+
   .home-bird-img {
     width: 100%;
     height: auto;
