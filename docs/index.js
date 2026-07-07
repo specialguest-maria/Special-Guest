@@ -174,7 +174,7 @@ function renderPageDynamicElements() {
       // Add slide item
       const slide = document.createElement('div');
       slide.className = 'carousel-slide-item';
-      slide.innerHTML = `<img src="${imgSrc}" class="carousel-slide-img" alt="Special Guest Concert">`;
+      slide.innerHTML = `<img src="${imgSrc}" class="carousel-slide-img" alt="Special Guest Concert" onclick="openLightbox('${imgSrc}')">`;
       carouselTrack.appendChild(slide);
 
       // Add dot indicator
@@ -406,3 +406,27 @@ function updateClock() {
     clockEl.textContent = `${hours}:${minutes}`;
   }
 }
+
+// LIGHTBOX (Fullscreen photo viewer)
+function openLightbox(imgSrc) {
+  const overlay = document.getElementById('lightbox-overlay');
+  const img = document.getElementById('lightbox-img');
+  if (overlay && img) {
+    img.src = imgSrc;
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeLightbox() {
+  const overlay = document.getElementById('lightbox-overlay');
+  if (overlay) {
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Close lightbox on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});

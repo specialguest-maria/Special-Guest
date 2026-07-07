@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@200;300;400;500;700&family=Caveat:wght@700&display=swap" rel="stylesheet">
   
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="index.css?v=4">
+  <link rel="stylesheet" href="index.css?v=5">
 </head>
 <body class="theme-dark">
 
@@ -26,7 +26,7 @@
       <nav class="desktop-nav">
         <ul>
           <li><a href="#home" class="active">HOME</a></li>
-          <li><a href="#music">MUSIC</a></li>
+          <li><a href="#music"><span data-lang="de">MUSIK</span><span data-lang="en">MUSIC</span></a></li>
           <li><a href="#live">LIVE</a></li>
           <li><a href="#bio">BIO</a></li>
           <li><a href="#booking">BOOK</a></li>
@@ -75,11 +75,10 @@
             <span data-lang="de">Komm uns Live Sehen</span>
             <span data-lang="en">Come See Us Live</span>
           </button>
-          
-          <!-- Bottom bird for Home screen in Mobile view -->
-          <div class="home-bird-container mobile-only">
-            <img src="assets/johnny-right.png" alt="Johnny the Bird" class="home-bird-img">
-          </div>
+        </div>
+        <!-- Johnny bird below the hero photo on mobile -->
+        <div class="home-bird-container mobile-only">
+          <img src="assets/johnny-right.png" alt="Johnny the Bird" class="home-bird-img">
         </div>
       </section>
 
@@ -301,7 +300,8 @@
         </li>
         <li>
           <button class="nav-item" id="nav-btn-music" onclick="navigateToTab('music')">
-            <span>MUSIC</span>
+            <span data-lang="de">MUSIK</span>
+            <span data-lang="en">MUSIC</span>
           </button>
         </li>
         <li>
@@ -340,7 +340,13 @@
 
   </main>
 
+  <!-- Photo Lightbox Overlay -->
+  <div class="lightbox-overlay" id="lightbox-overlay" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img src="" alt="Full size photo" class="lightbox-img" id="lightbox-img">
+  </div>
+
   <!-- JavaScript -->
-  <script src="index.js?v=3"></script>
+  <script src="index.js?v=5"></script>
 </body>
 </html>
