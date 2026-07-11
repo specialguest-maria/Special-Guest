@@ -64,6 +64,12 @@ a {
   display: none !important;
 }
 
+/* Elements parked until the band's own YouTube channel launches —
+   remove the class from the element in index.html to show them again */
+.hidden-until-launch {
+  display: none !important;
+}
+
 /* BUTTONS & COMPONENT ACTIONS */
 .cta-button, .tour-action-btn, .channel-link-btn, .submit-btn {
   font-family: var(--font-display);
