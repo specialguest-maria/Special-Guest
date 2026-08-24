@@ -134,7 +134,7 @@ function renderTourDates() {
       const privateText = currentLanguage === 'de' ? 'Privatanlass' : 'Private Event';
       actionBtnHtml = `<span class="tour-pending-note">${privateText}</span>`;
     } else if (gig.link) {
-      const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
+      const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Details';
       const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
       actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
     } else {
