@@ -16,7 +16,8 @@ const fallbackDefaultData = {
     "en": "We are Salome (guitar), Atlas (vocals), Yannick (guitar), Leon (drums), and Samuel (bass) - together we are Special Guest. We share a great passion for rock music and want to bring good vibes to the stage.\n\nEven without our own releases, we have already celebrated many achievements and gathered valuable experience in front of the jury and audience at the ESSC. Winning means a lot to us and gives us motivation and confidence for the future.\n\nNext up, we are looking forward to our performances on June 13th at Treibhaus and on June 27th at Stadtfest Luzern."
   },
   "tourDates": [
-    { "date": "2026-09-05", "venue": "Badi Konzert in Luzern", "link": "" }
+    { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/events-tribschen" },
+    { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "https://www.treibhausluzern.ch/", "private": true }
   ],
   "pastShows": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
@@ -126,9 +127,13 @@ function renderTourDates() {
     const gigRow = document.createElement('div');
     gigRow.className = 'tour-item';
 
-    // Events without a link get a deactivated "details to follow" button
+    // Private gigs are listed without a call to action, since the public cannot attend.
+    // Otherwise: events without a link get a deactivated "details to follow" button
     let actionBtnHtml;
-    if (gig.link) {
+    if (gig.private) {
+      const privateText = currentLanguage === 'de' ? 'Privatanlass' : 'Private event';
+      actionBtnHtml = `<span class="tour-pending-note">${privateText}</span>`;
+    } else if (gig.link) {
       const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
       const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
       actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">${btnText}</a>`;
@@ -137,9 +142,14 @@ function renderTourDates() {
       actionBtnHtml = `<span class="tour-pending-note">${pendingText}</span>`;
     }
 
+    // Optional showtime, appended to the date line
+    const timeSuffix = gig.time
+      ? ` · ${gig.time}${currentLanguage === 'de' ? ' Uhr' : ''}`
+      : '';
+
     gigRow.innerHTML = `
       <div class="tour-info">
-        <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}</span>
+        <span class="tour-date">${formatGigDate(gig.date, currentLanguage)}${timeSuffix}</span>
         <span class="tour-venue">${gig.venue}</span>
       </div>
       ${actionBtnHtml}
