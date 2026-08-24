@@ -17,7 +17,7 @@ const fallbackDefaultData = {
   },
   "tourDates": [
     { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/events-tribschen" },
-    { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "https://www.treibhausluzern.ch/", "private": true }
+    { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "", "private": true }
   ],
   "pastShows": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
