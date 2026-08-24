@@ -131,7 +131,7 @@ function renderTourDates() {
     // Otherwise: events without a link get a deactivated "details to follow" button
     let actionBtnHtml;
     if (gig.private) {
-      const privateText = currentLanguage === 'de' ? 'Privatanlass' : 'Private event';
+      const privateText = currentLanguage === 'de' ? 'Privatanlass' : 'Private Event';
       actionBtnHtml = `<span class="tour-pending-note">${privateText}</span>`;
     } else if (gig.link) {
       const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Tickets';
