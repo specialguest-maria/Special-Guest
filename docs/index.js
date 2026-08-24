@@ -15,16 +15,14 @@ const fallbackDefaultData = {
     "de": "Special Guest ist eine junge Rockband aus Luzern und besteht aus fünf Musiker*innen mit den Jahrgängen 2010 - 2012. Seit ihrer Gründung im Jahr 2023 hat die Band bereits zahlreiche Konzerte gespielt und im Mai 2026 erlangten sie den Sieg im SRF Eurovision School Song Contest.\n\nBisher hat Special Guest hauptsächlich Cover-Songs gespielt, aber zurzeit arbeitet die Band an ihren ersten eigenen Songs.",
     "en": "Special Guest is a young rock band from Lucerne consisting of five musicians born between 2010 and 2012. Since their formation in 2023, the band has already played numerous concerts, and in May 2026, they won the SRF Eurovision School Song Contest.\n\nSo far, Special Guest has mainly played cover songs, but the band is currently working on their first original songs."
   },
-  "tourDates": [
-    { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/events-tribschen" },
-    { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "", "private": true }
-  ],
-  "pastShows": [
+  "gigs": [
     { "date": "2026-04-02", "venue": "LUGA in Luzern", "link": "https://www.luga.ch/de/e/special-guest.78361" },
     { "date": "2026-04-13", "venue": "SRF ESSC Finale in Zürich", "link": "https://www.srf.ch/sendungen/school/eurovision-school-song-contest-diese-schulband-gewinnt-das-finale" },
     { "date": "2026-06-13", "venue": "Treibhaus, Luzern", "link": "https://www.treibhausluzern.ch/programm/bandnight-musikschule-luzern-130626" },
     { "date": "2026-06-21", "venue": "Albisstrassenfest in Adliswil ZH", "link": "https://www.albisstrassenfest.ch/#programm" },
-    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" }
+    { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
+    { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/events-tribschen" },
+    { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "", "private": true }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
@@ -74,6 +72,16 @@ function formatGigDate(dateStr, lang) {
   }
 }
 
+// Every gig lives in one "gigs" list; the two renderers split it by date, so a
+// show moves itself from Upcoming to Past Shows and never has to be moved by hand.
+// Older content_data.json files that still carry the separate tourDates/pastShows
+// pair keep working, in case a cached copy is served alongside this script.
+function getAllGigs() {
+  if (!cmsData) return [];
+  if (Array.isArray(cmsData.gigs)) return cmsData.gigs.slice();
+  return [...(cmsData.tourDates || []), ...(cmsData.pastShows || [])];
+}
+
 function isShowPast(dateStr) {
   const showDate = new Date(dateStr);
   showDate.setHours(0,0,0,0);
@@ -117,7 +125,7 @@ function renderTourDates() {
   tourListContainer.innerHTML = ''; // clear
 
   // Filter out past events (gigs show up to 1 day after show date has passed)
-  const upcomingGigs = cmsData.tourDates.filter(gig => !isShowPast(gig.date));
+  const upcomingGigs = getAllGigs().filter(gig => !isShowPast(gig.date));
 
   // Sort upcoming gigs chronologically ascending (soonest show at the top)
   upcomingGigs.sort((a, b) => new Date(a.date) - new Date(b.date));
@@ -180,7 +188,8 @@ function renderPastShows() {
   const list = document.getElementById('dynamic-past-shows-list');
   if (!container || !list) return;
 
-  const pastShows = (cmsData.pastShows || []).slice();
+  // Everything the upcoming list has dropped, so the two lists can never disagree
+  const pastShows = getAllGigs().filter(gig => isShowPast(gig.date));
   if (!pastShows.length) {
     container.style.display = 'none';
     return;
