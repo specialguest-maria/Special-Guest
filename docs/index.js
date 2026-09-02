@@ -23,7 +23,7 @@ const fallbackDefaultData = {
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/events-tribschen" },
     { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "", "private": true },
-    { "date": "2026-11-25", "venue": "SRF 3 punkt CH, Radio", "link": "https://share.google/kirGUWSCeftooV0ym" }
+    { "date": "2026-11-25", "venue": "SRF 3 punkt CH, Radio", "link": "https://www.srf.ch/audio/srf-3-punkt-ch" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
