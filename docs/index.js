@@ -6,7 +6,7 @@ let currentSlideIndex = 0;
 
 // FALLBACK DEFAULT DATA (if content_data.json is missing or offline)
 const fallbackDefaultData = {
-  "youtubeVideo": "https://share.google/kzpEFy9OFBIIiB3NN",
+  "youtubeVideo": "https://www.srf.ch/play/tv/redirect/detail/75308805-08e8-49db-a4cf-16d17b559959",
   "socials": {
     "instagram": "https://www.instagram.com/special.guest_officiall?igsh=Mzhla3doemxrZDd6",
     "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
