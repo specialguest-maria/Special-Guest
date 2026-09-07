@@ -6,7 +6,7 @@ let currentSlideIndex = 0;
 
 // FALLBACK DEFAULT DATA (if content_data.json is missing or offline)
 const fallbackDefaultData = {
-  "youtubeVideo": "https://www.srf.ch/play/tv/redirect/detail/75308805-08e8-49db-a4cf-16d17b559959",
+  "videoLink": "https://www.srf.ch/play/tv/redirect/detail/75308805-08e8-49db-a4cf-16d17b559959",
   "socials": {
     "instagram": "https://www.instagram.com/special.guest_officiall?igsh=Mzhla3doemxrZDd6",
     "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
@@ -275,7 +275,11 @@ function renderPageDynamicElements() {
   const ytChanLink = document.getElementById('youtube-channel-link');
   const cardThumb = document.getElementById('video-card-thumbnail');
   
-  if (ytPlayLink) ytPlayLink.setAttribute('href', cmsData.youtubeVideo);
+  // The Music section video, wherever it is hosted. Older content_data.json
+  // files call this youtubeVideo, so a cached copy served against this script
+  // keeps working.
+  const videoLink = cmsData.videoLink || cmsData.youtubeVideo;
+  if (ytPlayLink && videoLink) ytPlayLink.setAttribute('href', videoLink);
   if (ytChanLink) ytChanLink.setAttribute('href', cmsData.socials.youtube);
   if (cardThumb && cmsData.carouselImages.length > 1) {
     // Populate background from second image in CMS
