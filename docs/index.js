@@ -83,6 +83,13 @@ function getAllGigs() {
   return [...(cmsData.tourDates || []), ...(cmsData.pastShows || [])];
 }
 
+// Marks a private function in the action-button slot, in place of a link.
+// Shared by both gig lists so the wording cannot drift between them.
+function privateLabelHtml() {
+  const text = currentLanguage === 'de' ? 'Privatanlass' : 'Private Event';
+  return `<span class="tour-pending-note">${text}</span>`;
+}
+
 function isShowPast(dateStr) {
   const showDate = new Date(dateStr);
   showDate.setHours(0,0,0,0);
@@ -140,8 +147,7 @@ function renderTourDates() {
     // Otherwise: events without a link get a deactivated "details to follow" button
     let actionBtnHtml;
     if (gig.private) {
-      const privateText = currentLanguage === 'de' ? 'Privatanlass' : 'Private Event';
-      actionBtnHtml = `<span class="tour-pending-note">${privateText}</span>`;
+      actionBtnHtml = privateLabelHtml();
     } else if (gig.link) {
       const btnText = currentLanguage === 'de' ? 'Zum Event' : 'Details';
       const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
@@ -205,8 +211,11 @@ function renderPastShows() {
     const gigRow = document.createElement('div');
     gigRow.className = 'tour-item';
 
+    // Keeps the "Privatanlass" marker once the gig has moved into Past Shows
     let actionBtnHtml = '';
-    if (gig.link) {
+    if (gig.private) {
+      actionBtnHtml = privateLabelHtml();
+    } else if (gig.link) {
       const cleanLink = gig.link.startsWith('http') ? gig.link : `https://${gig.link}`;
       actionBtnHtml = `<a href="${cleanLink}" target="_blank" rel="noopener" class="tour-action-btn">Details</a>`;
     }
