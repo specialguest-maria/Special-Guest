@@ -187,6 +187,18 @@ a {
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
+.video-subtitle {
+  display: block;
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* SRF 3 punkt CH radio session card: same look as the video card, own photo */
+.video-thumbnail-wrapper.radio-card-thumbnail {
+  background-image: url('assets/band_photo.jpg');
+}
+
 .video-play-btn-link {
   position: absolute;
   top: 50%;

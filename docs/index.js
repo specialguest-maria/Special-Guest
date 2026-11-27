@@ -7,6 +7,7 @@ let currentSlideIndex = 0;
 // FALLBACK DEFAULT DATA (if content_data.json is missing or offline)
 const fallbackDefaultData = {
   "videoLink": "https://www.srf.ch/play/tv/redirect/detail/75308805-08e8-49db-a4cf-16d17b559959",
+  "radioSessionLink": "https://www.srf.ch/audio/srf-3-punkt-ch/livesession-zum-eurovision-school-song-contest-2026?id=AUDI20261125_RS_0035",
   "socials": {
     "instagram": "https://www.instagram.com/special.guest_officiall?igsh=Mzhla3doemxrZDd6",
     "youtube": "https://www.youtube.com/c/SRFUnterhaltung"
@@ -23,7 +24,7 @@ const fallbackDefaultData = {
     { "date": "2026-06-27", "venue": "Stadtfest Luzern", "link": "https://stadtfestluzern.ch" },
     { "date": "2026-09-05", "venue": "Badi Konzert, Strandbad Tribschen, Luzern", "time": "18:30", "link": "https://www.tribschen-badi.ch/de/" },
     { "date": "2026-09-17", "venue": "Treibhaus Luzern, Pro Juventute", "link": "", "private": true },
-    { "date": "2026-11-25", "venue": "SRF 3 punkt CH, Radio", "link": "https://www.srf.ch/audio/srf-3-punkt-ch" }
+    { "date": "2026-11-25", "venue": "SRF 3 punkt CH, Radio", "link": "https://www.srf.ch/audio/srf-3-punkt-ch/livesession-zum-eurovision-school-song-contest-2026?id=AUDI20261125_RS_0035" }
   ],
   "carouselImages": [
     "assets/treibhaus_alle4.jpg",
@@ -289,6 +290,10 @@ function renderPageDynamicElements() {
   // keeps working.
   const videoLink = cmsData.videoLink || cmsData.youtubeVideo;
   if (ytPlayLink && videoLink) ytPlayLink.setAttribute('href', videoLink);
+
+  // SRF 3 punkt CH radio session card (Music section)
+  const radioLink = document.getElementById('radio-session-link');
+  if (radioLink && cmsData.radioSessionLink) radioLink.setAttribute('href', cmsData.radioSessionLink);
   if (ytChanLink) ytChanLink.setAttribute('href', cmsData.socials.youtube);
   if (cardThumb && cmsData.carouselImages.length > 1) {
     // Populate background from second image in CMS
