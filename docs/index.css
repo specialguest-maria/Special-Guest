@@ -194,6 +194,34 @@ a {
   margin-top: 2px;
 }
 
+/* Subheader above the «To The Top» video: display-font title + handwritten note */
+.song-head {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 14px;
+  text-align: center;
+}
+
+.song-head-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.6rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.song-head-note {
+  font-family: var(--font-handwritten);
+  font-weight: 700;
+  font-size: 1.7rem;
+  line-height: 1.1;
+  color: var(--color-accent);
+  margin: 4px 0 0;
+  transform: rotate(-3deg);
+}
+
 /* SRF 3 live video card: inline <video> under the usual card overlay.
    Sized to the video's own shape (1280x616) so nothing is letterboxed. */
 .video-card.session-video-card {
@@ -1191,6 +1219,19 @@ a {
     margin-top: 10px;
     aspect-ratio: 1/1; /* Square player to match mobile screenshot */
     border: 1px solid var(--color-border);
+  }
+
+  /* «To The Top» subheader */
+  .song-head {
+    margin: 10px auto 4px;
+  }
+
+  .song-head-title {
+    font-size: 2.1rem;
+  }
+
+  .song-head-note {
+    font-size: 1.45rem;
   }
   
   .video-thumbnail-wrapper {
