@@ -325,6 +325,8 @@ function initSessionVideo() {
 
   playBtn.addEventListener('click', () => {
     overlay.classList.add('is-hidden');
+    const card = document.getElementById('session-video-card');
+    if (card) card.classList.add('is-playing');
     video.controls = true;
     const p = video.play();
     if (p && p.catch) p.catch(() => {}); // controls stay available if autoplay is blocked

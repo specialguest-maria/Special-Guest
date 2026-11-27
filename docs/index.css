@@ -223,6 +223,17 @@ a {
   display: none;
 }
 
+/* Video source credit: hero-photo-credit look, above the overlay */
+.hero-photo-credit.video-credit {
+  z-index: 3;
+}
+
+/* While playing, move it to the top so the video controls don't cover it */
+.session-video-card.is-playing .video-credit {
+  bottom: auto;
+  top: 8px;
+}
+
 .session-play-btn {
   background: none;
   border: 0;
