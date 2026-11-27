@@ -195,6 +195,14 @@ a {
   text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
+/* Song name on its own line, bigger and bold (To The Top video card) */
+.video-song-name {
+  display: block;
+  font-weight: 700;
+  font-size: 1.35em;
+  line-height: 1.1;
+}
+
 .video-subtitle {
   display: block;
   font-size: 0.85rem;
