@@ -194,6 +194,42 @@ a {
   margin-top: 2px;
 }
 
+/* SRF 3 live video card: inline <video> under the usual card overlay.
+   Sized to the video's own shape (1280x616) so nothing is letterboxed. */
+.video-card.session-video-card {
+  aspect-ratio: 1280 / 616;
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+.session-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+  display: block;
+}
+
+.video-thumbnail-wrapper.session-video-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/srf3_to_the_top_poster.jpg');
+}
+
+.session-video-overlay.is-hidden {
+  display: none;
+}
+
+.session-play-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 /* SRF 3 punkt CH radio session card: same look as the video card, own photo */
 .video-thumbnail-wrapper.radio-card-thumbnail {
   background-image: url('assets/band_photo.jpg');

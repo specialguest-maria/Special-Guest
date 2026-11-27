@@ -315,6 +315,23 @@ function renderPageDynamicElements() {
   if (footYt) footYt.setAttribute('href', cmsData.socials.youtube);
 }
 
+// SRF 3 LIVE VIDEO (Music section): the thumbnail overlay hides and the
+// video plays inline with its own controls.
+function initSessionVideo() {
+  const video = document.getElementById('session-video');
+  const overlay = document.getElementById('session-video-overlay');
+  const playBtn = document.getElementById('session-video-play');
+  if (!video || !overlay || !playBtn) return;
+
+  playBtn.addEventListener('click', () => {
+    overlay.classList.add('is-hidden');
+    video.controls = true;
+    const p = video.play();
+    if (p && p.catch) p.catch(() => {}); // controls stay available if autoplay is blocked
+  });
+}
+document.addEventListener('DOMContentLoaded', initSessionVideo);
+
 // LANGUAGE SWAP LOGIC
 function setLanguage(lang) {
   currentLanguage = lang;
