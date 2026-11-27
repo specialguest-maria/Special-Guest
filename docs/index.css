@@ -1230,14 +1230,18 @@ a {
   /* Music Page (Mobile) */
   .video-card {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px; /* breathing room between the music cards, similar to the gigs list */
     aspect-ratio: 1/1; /* Square player to match mobile screenshot */
     border: 1px solid var(--color-border);
   }
 
-  /* «To The Top» subheader */
+  /* To The Top subheader: sits close to its own video card */
   .song-head {
     margin: 10px auto 4px;
+  }
+
+  .song-head + .video-card {
+    margin-top: 10px;
   }
 
   .song-head-title {
