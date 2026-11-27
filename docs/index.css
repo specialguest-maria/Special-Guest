@@ -203,11 +203,13 @@ a {
 }
 
 .song-head-title {
+  /* Same look as the "Let's be friends" heading (.socials-heading) */
   font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 2.6rem;
-  letter-spacing: 1px;
-  line-height: 1;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  line-height: 1.1;
   color: var(--color-text-primary);
   margin: 0;
 }
@@ -1227,7 +1229,7 @@ a {
   }
 
   .song-head-title {
-    font-size: 2.1rem;
+    font-size: 1.5rem;
   }
 
   .song-head-note {
