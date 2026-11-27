@@ -243,7 +243,18 @@ a {
 
 /* SRF 3 punkt CH radio session card: same look as the video card, own photo */
 .video-thumbnail-wrapper.radio-card-thumbnail {
-  background-image: url('assets/band_photo.jpg');
+  background-image: url('assets/srf3_punktch_session.jpg');
+}
+
+/* 16:9 like the photo, so mobile doesn't crop the band off the sides */
+.video-card.radio-card {
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-photo-credit.radio-credit {
+  z-index: 3;
 }
 
 .video-play-btn-link {
