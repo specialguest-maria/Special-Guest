@@ -118,6 +118,14 @@ a {
   text-align: left;       /* Left-aligns text inside the header block */
 }
 
+/* Hand-drawn music notes beside the Music heading (sizes/positions per layout below) */
+.music-note-decor {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
 .section-title {
   font-size: 2.8rem;
   text-transform: uppercase;
@@ -855,6 +863,10 @@ a {
     transform: rotate(-12deg);
   }
   
+  .music-note-1 { width: 58px; left: calc(100% + 18px); top: -6px;  transform: rotate(10deg); }
+  .music-note-2 { width: 40px; left: calc(100% + 90px); top: -34px; transform: rotate(-14deg); }
+  .music-note-3 { width: 30px; left: calc(100% + 148px); top: 18px; transform: rotate(18deg); }
+
   .bio-note-decor {
     width: 58px;
     height: auto;
@@ -1320,6 +1332,10 @@ a {
     transform: rotate(-12deg);
   }
   
+  .music-note-1 { width: 44px; left: calc(100% + 12px); top: -4px;  transform: rotate(10deg); }
+  .music-note-2 { width: 30px; left: calc(100% + 64px); top: -26px; transform: rotate(-14deg); }
+  .music-note-3 { width: 23px; left: calc(100% + 106px); top: 14px; transform: rotate(18deg); }
+
   .bio-note-decor {
     width: 42px;
     position: absolute;
