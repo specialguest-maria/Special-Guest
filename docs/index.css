@@ -292,8 +292,10 @@ a {
   background-image: url('assets/srf3_punktch_session.jpg');
 }
 
-/* 16:9 like the photo, so mobile doesn't crop the band off the sides */
-.video-card.radio-card {
+/* 16:9 like the photo, so mobile doesn't crop the band off the sides.
+   The ESSC card uses the same shape so the cards match. */
+.video-card.radio-card,
+.video-card.essc-card {
   aspect-ratio: 16 / 9;
   position: relative;
   overflow: hidden;
